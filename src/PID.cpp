@@ -81,17 +81,17 @@ void PID::UpdateError(double cte) {
        if (!should_add && !should_subtract) {
 
            // Add dp[i] to params[i]
-           UpdatedParameterAtIndex(param_index, dp[param_index]);
+           UpdateParameterAtIndex(param_index, dp[param_index]);
            should_add = true;
        }
        else if (should_add && !should_subtract) {
            // Subtract dp[i] from params[i]
-           UpdatedParameterAtIndex(param_index, -2 * dp[param_index]);
+           UpdateParameterAtIndex(param_index, -2 * dp[param_index]);
            should_subtract = true;
        }
        else {
            // set it back, reduce dp[i], move on to next parameter
-           UpdatedParameterAtIndex(param_index, dp[param_index]);
+           UpdateParameterAtIndex(param_index, dp[param_index]);
            dp[param_index] *= 0.9;
            // next parameter
            param_index = (param_index + 1) % 3;
@@ -114,7 +114,7 @@ double PID::TotalError() {
 }
 
 
-void PID::UpdatedParameterAtIndex(int index, double amount) {
+void PID::UpdateParameterAtIndex(int index, double amount) {
 		// Update P
     if (index == 0) {
         Kp += amount;
@@ -128,7 +128,7 @@ void PID::UpdatedParameterAtIndex(int index, double amount) {
         Ki += amount;
     }
     else {
-        std::cout << "UpdatedParameterAtIndex: index out of bounds";
+        std::cout << "UpdateParameterAtIndex: index out of bounds";
     }
 }
 
