@@ -28,7 +28,7 @@ void PID::Init(double Kp_, double Ki_, double Kd_) {
   should_twiddle = false;
   dp = {0.1 * Kp, 0.1 * Kd, 0.1 * Ki};
   step = 1;
-  param_index = 2;  // this will go back to 0 after the first twiddle loop
+  param_index = 2;
 
   // number of settle and evaluation steps
   n_settle_steps = 100;
