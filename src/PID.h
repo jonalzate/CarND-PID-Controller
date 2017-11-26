@@ -57,7 +57,7 @@ public:
   /*
   * Update PID parameters in Twiddle
   */
-  void AddToParameterAtIndex(int index, double amount);
+  void UpdateParameterAtIndex(int index, double amount);
 };
 
 #endif /* PID_H */
